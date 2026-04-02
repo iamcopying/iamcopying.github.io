@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>Windows 11 全新开机设置流程 - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>Windows 11 全新开机设置流程</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2024-07-13T02:00:00.000Z">2024年7月13日</time></span>
+      
+        <span>· 938个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>全新电脑开箱流程，折腾完工作效率翻倍！</p>
+<h3 id="1-跳过开机联网激活"><a href="#1-跳过开机联网激活" class="headerlink" title="1. 跳过开机联网激活"></a>1. 跳过开机联网激活</h3><ol>
+<li>首先进入需要联网的界面，按下键盘上的 Shift + F10；</li>
+<li>按下后会打开命令提示符，在其中输入 oobe\bypassnro 后回车；</li>
+<li>使用上述命令后会重新启动，再进入联网界面后可以发现，右下角多了一个「我没有 Internet 连接」；</li>
+<li>点击它之后进入下图界面，再点击「继续执行受限设置」，就可以跳过联网激活，进行后续的设置。</li>
+</ol>
+<h3 id="2-卸载自带软件"><a href="#2-卸载自带软件" class="headerlink" title="2. 卸载自带软件"></a>2. 卸载自带软件</h3><p>卸载 Xbox：终端管理员中输入 Get-AppxPackage Microsoft.XboxGamingOverlay | remove-AppxPackage 后回车</p>
+<h3 id="3-设置鼠标滑轮为自然方向"><a href="#3-设置鼠标滑轮为自然方向" class="headerlink" title="3. 设置鼠标滑轮为自然方向"></a>3. 设置鼠标滑轮为自然方向</h3><p>24H2 及以上版本中已经新增设置入口：设置 - 蓝牙和其他设备 - 鼠标 - 滚动方向，选择「向下移动时向上滚动」；</p>
+<p>其他系统参考：<a target="_blank" rel="noopener" href="https://www.mspace.tech/tip/1457/">Windows系统下更改鼠标的滚动方向</a></p>
+<h3 id="4-修改系统字体为新微软雅黑"><a href="#4-修改系统字体为新微软雅黑" class="headerlink" title="4. 修改系统字体为新微软雅黑"></a>4. 修改系统字体为新微软雅黑</h3><h3 id="5-Windows-家庭版改为专业版"><a href="#5-Windows-家庭版改为专业版" class="headerlink" title="5. Windows 家庭版改为专业版"></a>5. Windows 家庭版改为专业版</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637930518">win11专业版激活密钥（亲测有效）2个</a></p>
+<p>省流版本：</p>
+<ol>
+<li>断开网络后到系统输入密匙：J8WVF-9X3GM-4WVYC-VDHQG-42CXT，更新完成后联网；</li>
+<li>打开终端， 输入 irm massgrave.dev&#x2F;get.ps1 | iex 后回车；</li>
+<li>弹出窗口选[1]；</li>
+<li>回到系统查看会显示「激活成功」。</li>
+</ol>
+<h3 id="6-Microsoft-Store-安装-PowerShell-7"><a href="#6-Microsoft-Store-安装-PowerShell-7" class="headerlink" title="6. Microsoft Store 安装 PowerShell 7"></a>6. Microsoft Store 安装 PowerShell 7</h3><h3 id="7-安装-WSL-和-Ubuntu"><a href="#7-安装-WSL-和-Ubuntu" class="headerlink" title="7. 安装 WSL 和 Ubuntu"></a>7. 安装 WSL 和 Ubuntu</h3><p>参考文章: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install">如何使用 WSL 在 Windows 上安装 Linux</a></p>
+<p>省流：使用管理员打开终端，输入 wsl –install -d Ubuntu 24.02 后回车，然后重启计算机。</p>
+<h3 id="8-键盘重映射"><a href="#8-键盘重映射" class="headerlink" title="8. 键盘重映射"></a>8. 键盘重映射</h3><p>Microsoft Store 安装 PowerToys，重新映射以下：</p>
+<ul>
+<li>重新映射键：Caps Lock -&gt; Ctrl(Left) + Space</li>
+<li>重新映射快捷键：Win(Left) + G -&gt; Win(Left) + Shift(Left) + S</li>
+<li>重新映射快捷键：Win(Left) + Shift(Left) + F23 -&gt; Ctrl(Left)</li>
+</ul>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/Windows/">#Windows</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

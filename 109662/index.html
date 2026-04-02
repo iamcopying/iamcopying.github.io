@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>OpenClaw 和本地模型 Ollama - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>OpenClaw 和本地模型 Ollama</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2026-02-26T02:00:00.000Z">2026年2月26日</time></span>
+      
+        <span>· 761个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>年初开始 OpenClaw 话题度只增不减，使用本地模型就可以零成本体验。</p>
+<h3 id="1-安装本地模型，如果想用云端API可忽略"><a href="#1-安装本地模型，如果想用云端API可忽略" class="headerlink" title="1. 安装本地模型，如果想用云端API可忽略"></a>1. 安装本地模型，如果想用云端API可忽略</h3><p>安装Ollama: <code>curl -fsSL https://ollama.com/install.sh | sh</code></p>
+<p>下载模型: <code>ollama pull qwen3:4b</code></p>
+<p>测试模型: <code>ollama run qwen3:4b</code></p>
+<h3 id="2-安装OpenClaw"><a href="#2-安装OpenClaw" class="headerlink" title="2. 安装OpenClaw"></a>2. 安装OpenClaw</h3><p>安装OpenClaw: <code>npm i -g openclaw</code></p>
+<p>安装向导: <code>openclaw onboard</code></p>
+<ul>
+<li>I understand this is powerful and inherently risky. Continue? -&gt; Yes</li>
+<li>Onboarding mode -&gt; QuickStart</li>
+<li>Config handling -&gt; Update values</li>
+<li>Model&#x2F;auth provider -&gt; Skip for now</li>
+<li>Filter models by provider -&gt; ollama</li>
+<li>Default model -&gt; ollama&#x2F;qwen3:4b</li>
+<li>Select channel (QuickStart) -&gt; Skip for now</li>
+<li>Configure skills now? (recommended) -&gt; No</li>
+<li>Enable hooks? -&gt; Skip for now</li>
+<li>Gateway service already installed -&gt; Restart</li>
+<li>How do you want to hatch your bot? -&gt; Hatch in TUI</li>
+</ul>
+<p>到这一步，你的本地 AI 助手就已经跑起来了。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://docs.openclaw.ai/start/getting-started">入门指南</a></p>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/AI/">#AI</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

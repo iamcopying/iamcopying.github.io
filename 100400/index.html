@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>CS+ V4.08 版本的两个坑 - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>CS+ V4.08 版本的两个坑</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2024-12-18T02:00:00.000Z">2024年12月18日</time></span>
+      
+        <span>· 242个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>瑞萨芯片开发必看</p>
+<h4 id="1-容量大小异常"><a href="#1-容量大小异常" class="headerlink" title="1. 容量大小异常"></a>1. 容量大小异常</h4><p>以芯片型号 R5F100PG 为例，ROM 大小是 128KB，使用 V4.08 版本附带的编译器生成的 MAP 文件中 ROM SIZE &#x3D; 10000H，换算下是 64KB，容量小了一半，使用 V4.07 及以下版本正常，ROM SIZE &#x3D; 20000H。</p>
+<h4 id="2-定时器不准"><a href="#2-定时器不准" class="headerlink" title="2. 定时器不准"></a>2. 定时器不准</h4><p>V4.08 版本 debug 时定时器不准，现象是 1 分钟定时，掐表看是 1 分零 4 秒，可能是主频偏差，没仔细查，V4.07 以下版本正常。</p>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/MCU/">#MCU</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

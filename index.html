@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+        <div class="header-search">
+          <input id="post-filter" type="search" placeholder="搜索" aria-label="搜索文章">
+        </div>
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    
+<script id="search-data" type="application/json">[{"title":"OpenClaw 和中转站","path":"/101066/","date":"2026年4月1日","text":"年初开始 OpenClaw 话题度只增不减，现在我们接入中转站来使用。\n安装 OpenClaw: npm i -g openclaw\n安装向导: openclaw onboard\n\nI understand this is powerful and inherently risky. Continue? -&gt; Yes\nOnboarding mode -&gt; QuickStart\nConfig handling -&gt; Update values\nModel&#x2F;auth provider -&gt; Skip for now\nDefault model -&gt; Skip for now\nSelect channel (QuickStart) -&gt; Skip for now\nConfigure skills now? (recommended) -&gt; No\nEnable hooks? -&gt; Skip for now\nGateway service already installed -&gt; Restart\nHow do you want to hatch your bot? -&gt; Skip for now\n\n之后修改配置文件，目录为 \\.openclaw\\openclaw.json:\n&#123;  &quot;models&quot;: &#123;    &quot;mode&quot;: &quot;merge&quot;,    &quot;providers&quot;: &#123;      &quot;newapi&quot;: &#123;        &quot;baseUrl&quot;: &quot;https://替换为你的网址/v1&quot;,        &quot;apiKey&quot;: &quot;替换为你的KEY&quot;,        &quot;api&quot;: &quot;openai-responses&quot;,        &quot;headers&quot;: &#123;          &quot;User-Agent&quot;: &quot;@openclaw/2026.1.29 node/v22.22.0 (KHTML, like Gecko) Edge/125.0.2535.67&quot;,          &quot;Accept&quot;: &quot;*/*&quot;,          &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;        &#125;,        &quot;models&quot;: [          &#123;            &quot;id&quot;: &quot;gpt-5.4&quot;,            &quot;name&quot;: &quot;gpt-5.4&quot;,            &quot;input&quot;: [              &quot;text&quot;            ],            &quot;contextWindow&quot;: 128000,            &quot;maxTokens&quot;: 8192          &#125;        ]      &#125;    &#125;  &#125;,  &quot;agents&quot;: &#123;    &quot;defaults&quot;: &#123;      &quot;model&quot;: &#123;        &quot;primary&quot;: &quot;newapi/gpt-5.4&quot;      &#125;,      &quot;models&quot;: &#123;        &quot;newapi/gpt-5.4&quot;: &#123;&#125;      &#125;    &#125;  &#125;&#125;\n\n之后执行 openclaw tui 就可以使用了。\n","firstLine":"年初开始 OpenClaw 话题度只增不减，现在我们接入中转站来使用。"},{"title":"OpenClaw 和云端模型","path":"/108426/","date":"2026年3月2日","text":"年初开始 OpenClaw 话题度只增不减，现在我们使用 OpenAI Codex 提供的免费额度体验下。\n安装 OpenClaw: npm i -g openclaw\n安装向导: openclaw onboard\n\nI understand this is powerful and inherently risky. Continue? -&gt; Yes\nOnboarding mode -&gt; QuickStart\nConfig handling -&gt; Update values\nModel&#x2F;auth provider -&gt; OpenAI\nOpenAI auth method -&gt; OpenAI Codex(chatGPT OAuth)\n\n需要说明，如果没有自动弹出浏览器窗口，就手动复制网址到浏览器打开，输入账号登录授权，复制回调地址到 OpenClaw。\n\nDefault model -&gt; openai-codex&#x2F;gpt-5.3-codex\nSelect channel (QuickStart) -&gt; Skip for now\nConfigure skills now? (recommended) -&gt; No\nEnable hooks? -&gt; Skip for now\nGateway service already installed -&gt; Restart\nHow do you want to hatch your bot? -&gt; Hatch in TUI\n\n到这一步，你的云端 AI 助手就已经跑起来了。\n参考：接入 OpenAI Codex\n","firstLine":"年初开始 OpenClaw 话题度只增不减，现在我们使用 OpenAI Codex 提供的免费额度体验下。"},{"title":"Codex CLI 体验","path":"/101287/","date":"2026年2月27日","text":"这几天看到很多中转站放出免费 API，体验下命令行编程方式。\n1. 安装\n安装 CLI: npm i -g @openai/codex\n验证版本: codex --version\n\n2. 配置\n如果使用中转站则需要提前配置，参考指南。\n如果使用官方账号，在首次 codex 后自动弹网页一键登录即可。\n\n3. 使用方法\n直接输入 codex 进入交互式对话\n在项目目录下运行 codex，Codex 会自动识别项目上下文\n输入 exit 或按 Ctrl+C 退出\n\n到这一步，就可以愉快的编程了。\n参考：入门指南\n","firstLine":"这几天看到很多中转站放出免费 API，体验下命令行编程方式。"},{"title":"OpenClaw 和本地模型 Ollama","path":"/109662/","date":"2026年2月26日","text":"年初开始 OpenClaw 话题度只增不减，使用本地模型就可以零成本体验。\n1. 安装本地模型，如果想用云端API可忽略安装Ollama: curl -fsSL https://ollama.com/install.sh | sh\n下载模型: ollama pull qwen3:4b\n测试模型: ollama run qwen3:4b\n2. 安装OpenClaw安装OpenClaw: npm i -g openclaw\n安装向导: openclaw onboard\n\nI understand this is powerful and inherently risky. Continue? -&gt; Yes\nOnboarding mode -&gt; QuickStart\nConfig handling -&gt; Update values\nModel&#x2F;auth provider -&gt; Skip for now\nFilter models by provider -&gt; ollama\nDefault model -&gt; ollama&#x2F;qwen3:4b\nSelect channel (QuickStart) -&gt; Skip for now\nConfigure skills now? (recommended) -&gt; No\nEnable hooks? -&gt; Skip for now\nGateway service already installed -&gt; Restart\nHow do you want to hatch your bot? -&gt; Hatch in TUI\n\n到这一步，你的本地 AI 助手就已经跑起来了。\n参考：入门指南\n","firstLine":"年初开始 OpenClaw 话题度只增不减，使用本地模型就可以零成本体验。"},{"title":"用 C 语言实现最小二乘法算法","path":"/100211/","date":"2025年2月28日","text":"有些嵌入式系统的 IDE 不支持结构体，改为数组方式。\n#include &lt;stdio.h&gt;#define LEN 100float DataInX[LEN];float DataInY[LEN];unsigned char GucDataLength;void push(float x, float y) &#123;    int i = 0;    if (GucDataLength &lt; LEN) &#123;        DataInX[GucDataLength] = x;        DataInY[GucDataLength++] = y;        return;    &#125;    // 数据移动,去掉最后一个数据    for (i = 0; i &lt; LEN - 1; i++) &#123;        DataInX[i] = DataInX[i + 1];        DataInY[i] = DataInY[i + 1];    &#125;    DataInY[LEN] = x;    DataInY[LEN] = y;    GucDataLength = LEN;&#125;float calc(float x) &#123;    int i = 0;    float mean_x = 0;    float mean_y = 0;    float num1 = 0;    float num2 = 0;    float a = 0;    float b = 0;    //求t,y的均值    for (i = 0; i &lt; GucDataLength; i++) &#123;        mean_x += DataInX[i];        mean_y += DataInY[i];    &#125;    mean_x /= GucDataLength;    mean_y /= GucDataLength;    printf(&quot;mean_x = %f,mean_y = %f\\n&quot;, mean_x, mean_y);    for (i = 0; i &lt; GucDataLength; i++) &#123;        num1 += (DataInX[i] - mean_x) * (DataInY[i] - mean_y);        num2 += (DataInX[i] - mean_x) * (DataInX[i] - mean_x);    &#125;    a = num1 / num2;    b = mean_y - b * mean_x;    printf(&quot;a = %f,b = %f\\n&quot;, a, b);    return (a * x + b);&#125;int main() &#123;    float data_x[7] = &#123;0, 1, 2, 3, 4, 5, 6&#125;;    float data_y[7] = &#123;-88, 16, -20, 11, 1, 1, -60&#125;;    int i = 0;    for (i = 0; i &lt; 7; i++) &#123;        push(data_x[i], data_y[i]);    &#125;    /* 计算x=10时y值 */    printf(&quot;data_y[10] = %f\\n&quot;, calc(10));    return 0;&#125;\n\n转载：用C语言实现最小二乘法算法\n","firstLine":"有些嵌入式系统的 IDE 不支持结构体，改为数组方式。"},{"title":"复位 MCU 直接调试运行程序，让 bug 闻风丧胆~","path":"/110807/","date":"2025年2月26日","text":"查看原文\n","firstLine":"查看原文"},{"title":"避坑！STM32 的 FLASH 容量问题！","path":"/112353/","date":"2025年2月25日","text":"根据数据手册可得知，STM32F103RCT6 是大容量产品，FLASH 为 256K，地址范围为 0x08000000 - 0x0803FFFF。\n有个项目在 FLASH 地址分别是 0x0804000 和 0x08060000 读写数据，但是读写均正常。看到有人讨论，ST 芯片的实际容量会比标定容量大一点，但多出来的空间不保证质量，需要注意这个地方。\n","firstLine":"根据数据手册可得知，STM32F103RCT6 是大容量产品，FLASH 为 256K，地址范围为 0x08000000 - 0x0803FFFF。"},{"title":"避坑！使用 STM32F4 的 DMA 时需要这样设置！","path":"/103323/","date":"2025年2月20日","text":"最近有个项目使用 STM32F407 USART1 串口发送数据，借助 DMA 方式。\n发现一个问题：需要检测发送完成标志位后清除标志位后才能再次发送，而之前使用 STM32F103 却不需要清标志位的操作。\n清除标志位的示例代码如下：\nif (DMA_GetFlagStatus(DMA2_Stream7, DMA_FLAG_TCIF7) != RESET) &#123;     DMA_ClearFlag(DMA2_Stream7, DMA_FLAG_TCIF7);&#125;","firstLine":"最近有个项目使用 STM32F407 USART1 串口发送数据，借助 DMA 方式。"},{"title":"避坑！STM32F1 这 3 个 IO 需要特殊设置！","path":"/115777/","date":"2025年2月17日","text":"有个项目需要使用 PB3、PB4 作为普通 GPIO，但是配置后不生效。\n查资料发现是 PB3、PB4 引脚在复位后的默认配置为 JTAG 功能，如果想要设置成普通 GPIO 口功能，需要在配置的时候关闭引脚的 JTAG 功能，让其可以充当普通 GPIO 口来使用。\nGPIO_InitTypeDef GPIO_InitStructure;RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO, ENABLE);GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;GPIO_Init(GPIOA, &amp;GPIO_InitStructure); GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4；GPIO_Init(GPIOB, &amp;GPIO_InitStructure);\n\n上面代码中开启 AFIO 时钟，禁止使用芯片的 JTAG 功能，另外不要同时禁止芯片的 SWD 功能，否则无法烧录或仿真，经过这样的简单配置就可以充当普通 GPIO 口使用了。\n","firstLine":"有个项目需要使用 PB3、PB4 作为普通 GPIO，但是配置后不生效。"},{"title":"CS+ V4.08 版本的两个坑","path":"/100400/","date":"2024年12月18日","text":"瑞萨芯片开发必看\n1. 容量大小异常以芯片型号 R5F100PG 为例，ROM 大小是 128KB，使用 V4.08 版本附带的编译器生成的 MAP 文件中 ROM SIZE &#x3D; 10000H，换算下是 64KB，容量小了一半，使用 V4.07 及以下版本正常，ROM SIZE &#x3D; 20000H。\n2. 定时器不准V4.08 版本 debug 时定时器不准，现象是 1 分钟定时，掐表看是 1 分零 4 秒，可能是主频偏差，没仔细查，V4.07 以下版本正常。\n","firstLine":"瑞萨芯片开发必看"},{"title":"查看网易企业邮箱的服务器地址","path":"/159082/","date":"2024年9月18日","text":"企业邮箱的POP、SMTP、IMAP服务器地址设置。（含海外客户端配置）\n","firstLine":"企业邮箱的POP、SMTP、IMAP服务器地址设置。（含海外客户端配置）"},{"title":"关闭 VS Code 的 Preview 功能","path":"/119057/","date":"2024年9月6日","text":"打开设置，搜索 workbench.editor.enablePreview，去掉勾选。\n","firstLine":"打开设置，搜索 workbench.editor.enablePreview，去掉勾选。"},{"title":"Firefox 隐藏「列出所有标签页」按钮","path":"/119212/","date":"2024年9月3日","text":"地址栏访问 about:config，搜索 browser.tabs.tabmanager.enabled，并将其值设置为 FALSE 即可。\n","firstLine":"地址栏访问 about:config，搜索 browser.tabs.tabmanager.enabled，并将其值设置为 FALSE 即可。"},{"title":"Windows 11 全新开机设置流程","path":"/117063/","date":"2024年7月13日","text":"全新电脑开箱流程，折腾完工作效率翻倍！\n1. 跳过开机联网激活\n首先进入需要联网的界面，按下键盘上的 Shift + F10；\n按下后会打开命令提示符，在其中输入 oobe\\bypassnro 后回车；\n使用上述命令后会重新启动，再进入联网界面后可以发现，右下角多了一个「我没有 Internet 连接」；\n点击它之后进入下图界面，再点击「继续执行受限设置」，就可以跳过联网激活，进行后续的设置。\n\n2. 卸载自带软件卸载 Xbox：终端管理员中输入 Get-AppxPackage Microsoft.XboxGamingOverlay | remove-AppxPackage 后回车\n3. 设置鼠标滑轮为自然方向24H2 及以上版本中已经新增设置入口：设置 - 蓝牙和其他设备 - 鼠标 - 滚动方向，选择「向下移动时向上滚动」；\n其他系统参考：Windows系统下更改鼠标的滚动方向\n4. 修改系统字体为新微软雅黑5. Windows 家庭版改为专业版参考文章：win11专业版激活密钥（亲测有效）2个\n省流版本：\n\n断开网络后到系统输入密匙：J8WVF-9X3GM-4WVYC-VDHQG-42CXT，更新完成后联网；\n打开终端， 输入 irm massgrave.dev&#x2F;get.ps1 | iex 后回车；\n弹出窗口选[1]；\n回到系统查看会显示「激活成功」。\n\n6. Microsoft Store 安装 PowerShell 77. 安装 WSL 和 Ubuntu参考文章: 如何使用 WSL 在 Windows 上安装 Linux\n省流：使用管理员打开终端，输入 wsl –install -d Ubuntu 24.02 后回车，然后重启计算机。\n8. 键盘重映射Microsoft Store 安装 PowerToys，重新映射以下：\n\n重新映射键：Caps Lock -&gt; Ctrl(Left) + Space\n重新映射快捷键：Win(Left) + G -&gt; Win(Left) + Shift(Left) + S\n重新映射快捷键：Win(Left) + Shift(Left) + F23 -&gt; Ctrl(Left)\n\n","firstLine":"全新电脑开箱流程，折腾完工作效率翻倍！"},{"title":"利用 Hexo 在 Github Pages 上搭建博客","path":"/111526/","date":"2024年7月3日","text":"参考文章：如何使用Hexo搭建个人博客\n修正几点：\n\n文章只看到 1.3 即可；\n文章中给出的 Nodejs 链接是国内网站，其实官网是 Node.js；\n不需要“然后 clone 到你的本地电脑上。”这个步骤；\n不需要“在第一次部署后，请到 github 后台，补充你的 网站信息，否则无法访问。”这个步骤。\n\n","firstLine":"参考文章：如何使用Hexo搭建个人博客"}]</script>
+
+<section id="post-list" class="post-list">
+  
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/101066/">OpenClaw 和中转站</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2026-04-01T02:00:00.000Z">2026年4月1日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">年初开始 OpenClaw 话题度只增不减，现在我们接入中转站来使用。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/108426/">OpenClaw 和云端模型</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2026-03-02T02:00:00.000Z">2026年3月2日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">年初开始 OpenClaw 话题度只增不减，现在我们使用 OpenAI Codex 提供的免费额度体验下。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/101287/">Codex CLI 体验</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2026-02-27T02:00:00.000Z">2026年2月27日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">这几天看到很多中转站放出免费 API，体验下命令行编程方式。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/109662/">OpenClaw 和本地模型 Ollama</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2026-02-26T02:00:00.000Z">2026年2月26日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">年初开始 OpenClaw 话题度只增不减，使用本地模型就可以零成本体验。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/100211/">用 C 语言实现最小二乘法算法</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2025-02-28T02:00:00.000Z">2025年2月28日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">有些嵌入式系统的 IDE 不支持结构体，改为数组方式。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/110807/">复位 MCU 直接调试运行程序，让 bug 闻风丧胆~</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2025-02-26T02:00:00.000Z">2025年2月26日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">查看原文</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/112353/">避坑！STM32 的 FLASH 容量问题！</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2025-02-25T02:00:00.000Z">2025年2月25日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">根据数据手册可得知，STM32F103RCT6 是大容量产品，FLASH 为 256K，地址范围为 0x08000000 - 0x0803FFFF。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/103323/">避坑！使用 STM32F4 的 DMA 时需要这样设置！</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2025-02-20T02:00:00.000Z">2025年2月20日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">最近有个项目使用 STM32F407 USART1 串口发送数据，借助 DMA 方式。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/115777/">避坑！STM32F1 这 3 个 IO 需要特殊设置！</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2025-02-17T02:00:00.000Z">2025年2月17日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">有个项目需要使用 PB3、PB4 作为普通 GPIO，但是配置后不生效。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/100400/">CS+ V4.08 版本的两个坑</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-12-18T02:00:00.000Z">2024年12月18日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">瑞萨芯片开发必看</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/159082/">查看网易企业邮箱的服务器地址</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-09-18T02:00:00.000Z">2024年9月18日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">企业邮箱的POP、SMTP、IMAP服务器地址设置。（含海外客户端配置）</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/119057/">关闭 VS Code 的 Preview 功能</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-09-06T02:10:00.000Z">2024年9月6日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">打开设置，搜索 workbench.editor.enablePreview，去掉勾选。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/119212/">Firefox 隐藏「列出所有标签页」按钮</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-09-03T02:00:00.000Z">2024年9月3日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">地址栏访问 about:config，搜索 browser.tabs.tabmanager.enabled，并将其值设置为 FALSE 即可。</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/117063/">Windows 11 全新开机设置流程</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-07-13T02:00:00.000Z">2024年7月13日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">全新电脑开箱流程，折腾完工作效率翻倍！</div>
+    
+  </div>
+</article>
+
+    
+      <article class="post-card">
+  <h2 class="post-title">
+    <a href="/111526/">利用 Hexo 在 Github Pages 上搭建博客</a>
+  </h2>
+
+  <div class="post-summary">
+    <time datetime="2024-07-03T02:00:00.000Z">2024年7月3日</time>
+    
+      <span class="post-summary-sep">-</span>
+      
+      
+      <div class="post-excerpt">参考文章：如何使用Hexo搭建个人博客</div>
+    
+  </div>
+</article>
+
+    
+  
+</section>
+
+
+
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

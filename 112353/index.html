@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>避坑！STM32 的 FLASH 容量问题！ - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>避坑！STM32 的 FLASH 容量问题！</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2025-02-25T02:00:00.000Z">2025年2月25日</time></span>
+      
+        <span>· 179个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>根据数据手册可得知，STM32F103RCT6 是大容量产品，FLASH 为 256K，地址范围为 0x08000000 - 0x0803FFFF。</p>
+<p>有个项目在 FLASH 地址分别是 0x0804000 和 0x08060000 读写数据，但是读写均正常。看到<a target="_blank" rel="noopener" href="https://www.stmcu.org.cn/module/forum/forum.php?mod=viewthread&tid=607566">有人讨论</a>，ST 芯片的实际容量会比标定容量大一点，但多出来的空间不保证质量，需要注意这个地方。</p>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/MCU/">#MCU</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

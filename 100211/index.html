@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>用 C 语言实现最小二乘法算法 - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>用 C 语言实现最小二乘法算法</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2025-02-28T02:00:00.000Z">2025年2月28日</time></span>
+      
+        <span>· 1581个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>有些嵌入式系统的 IDE 不支持结构体，改为数组方式。</p>
+<figure class="highlight c" data-language="C"><table><tr><td class="code"><pre><code class="hljs C" data-language="C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LEN 100</span><br><span class="hljs-type">float</span> DataInX[LEN];<br><span class="hljs-type">float</span> DataInY[LEN];<br><span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> GucDataLength;<br><span class="hljs-type">void</span> <span class="hljs-title function_">push</span><span class="hljs-params">(<span class="hljs-type">float</span> x, <span class="hljs-type">float</span> y)</span> &#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (GucDataLength &lt; LEN) &#123;<br>        DataInX[GucDataLength] = x;<br>        DataInY[GucDataLength++] = y;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">// 数据移动,去掉最后一个数据</span><br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; LEN - <span class="hljs-number">1</span>; i++) &#123;<br>        DataInX[i] = DataInX[i + <span class="hljs-number">1</span>];<br>        DataInY[i] = DataInY[i + <span class="hljs-number">1</span>];<br>    &#125;<br>    DataInY[LEN] = x;<br>    DataInY[LEN] = y;<br>    GucDataLength = LEN;<br>&#125;<br><br><span class="hljs-type">float</span> <span class="hljs-title function_">calc</span><span class="hljs-params">(<span class="hljs-type">float</span> x)</span> &#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> mean_x = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> mean_y = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> num1 = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> num2 = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> a = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">float</span> b = <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">//求t,y的均值</span><br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; GucDataLength; i++) &#123;<br>        mean_x += DataInX[i];<br>        mean_y += DataInY[i];<br>    &#125;<br>    mean_x /= GucDataLength;<br>    mean_y /= GucDataLength;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;mean_x = %f,mean_y = %f\n&quot;</span>, mean_x, mean_y);<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; GucDataLength; i++) &#123;<br>        num1 += (DataInX[i] - mean_x) * (DataInY[i] - mean_y);<br>        num2 += (DataInX[i] - mean_x) * (DataInX[i] - mean_x);<br>    &#125;<br>    a = num1 / num2;<br>    b = mean_y - b * mean_x;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a = %f,b = %f\n&quot;</span>, a, b);<br>    <span class="hljs-keyword">return</span> (a * x + b);<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">float</span> data_x[<span class="hljs-number">7</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;;<br>    <span class="hljs-type">float</span> data_y[<span class="hljs-number">7</span>] = &#123;<span class="hljs-number">-88</span>, <span class="hljs-number">16</span>, <span class="hljs-number">-20</span>, <span class="hljs-number">11</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-60</span>&#125;;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; i++) &#123;<br>        push(data_x[i], data_y[i]);<br>    &#125;<br>    <span class="hljs-comment">/* 计算x=10时y值 */</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;data_y[10] = %f\n&quot;</span>, calc(<span class="hljs-number">10</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>转载：<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15077560/4686280">用C语言实现最小二乘法算法</a></p>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/MCU/">#MCU</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>

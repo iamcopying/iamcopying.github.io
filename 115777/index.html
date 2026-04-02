@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f7ae0">
+  <title>避坑！STM32F1 这 3 个 IO 需要特殊设置！ - Code</title>
+  <link rel="icon" href="/images/site-icon.png">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/vendor/highlight/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/vendor/highlight/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+  <div class="container head-inner">
+    <a class="brand" href="/" aria-label="返回首页">
+      <img class="brand-mark" src="/images/site-icon.png" alt="Code">
+    </a>
+
+    <div class="head-actions">
+      
+
+      <nav class="menu">
+        
+          <a href="/archives/">归档</a>
+        
+          <a href="/categories/">分类</a>
+        
+          <a href="/tags/">标签</a>
+        
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">切换主题</button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main container">
+    <article class="post-single">
+  <header class="post-head">
+    <h1>避坑！STM32F1 这 3 个 IO 需要特殊设置！</h1>
+    <div class="post-meta">
+      <span>发表于<time datetime="2025-02-17T02:00:00.000Z">2025年2月17日</time></span>
+      
+        <span>· 644个字</span>
+      
+    </div>
+  </header>
+
+  <div class="post-content"><p>有个项目需要使用 PB3、PB4 作为普通 GPIO，但是配置后不生效。</p>
+<p>查资料发现是 PB3、PB4 引脚在复位后的默认配置为 JTAG 功能，如果想要设置成普通 GPIO 口功能，需要在配置的时候关闭引脚的 JTAG 功能，让其可以充当普通 GPIO 口来使用。</p>
+<figure class="highlight c" data-language="C"><table><tr><td class="code"><pre><code class="hljs C" data-language="C">GPIO_InitTypeDef GPIO_InitStructure;<br>RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO, ENABLE);<br>GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);<br>GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;<br>GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;<br>GPIO_Init(GPIOA, &amp;GPIO_InitStructure); <br>GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4；<br>GPIO_Init(GPIOB, &amp;GPIO_InitStructure);<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中开启 AFIO 时钟，禁止使用芯片的 JTAG 功能，另外不要同时禁止芯片的 SWD 功能，否则无法烧录或仿真，经过这样的简单配置就可以充当普通 GPIO 口使用了。</p>
+</div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/MCU/">#MCU</a>
+      
+    </div>
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Code</span>
+    <span>Hexo Powered · Theme Nova</span>
+  </div>
+</footer>
+
+  <script src="/vendor/highlight/highlight.min.js"></script>
+  
+<script src="/js/main.js"></script>
+
+</body>
+</html>
